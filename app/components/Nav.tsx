@@ -16,13 +16,16 @@ export default function Nav({ user }: Session) {
         <h1>Attire Alchemy</h1>
       </Link>
       <ul className="flex items-center gap-12">
-        {/* is the user is not signed in */}
-        <li className='flex items-center text-3xl relative cursor-pointer'>
+        {/* toggle the cart */}
+        <li onClick={() => cartStore.toggleCart()}
+        className='flex items-center text-3xl relative cursor-pointer'>
           <AiFillShopping />
           <span className='bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center'>
             {cartStore.cart.length}
           </span>
         </li>
+
+        {/* is the user is not signed in */}
         {!user &&
           <li className="bg-teal-600 test-white py-2 px-4 rounded-md mb-4">
             <button onClick={() => signIn()}>Sign In</button>
