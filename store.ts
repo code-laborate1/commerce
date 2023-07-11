@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { AddCartType } from './types/AddCartType';
-import { it } from 'node:test';
 
 type CartState = {
   isOpen: boolean;
@@ -12,12 +11,12 @@ type CartState = {
   paymentIntent: string;
   onCheckout: string;
   setPaymentIntent: (val: string) => void;
-  setCheckout: (val: string) => void
+  setCheckout: (val: string) => void;
 };
 
 export const useCartStore = create<CartState>()(
   persist(
-    (set) => ({
+    set => ({
       cart: [],
       isOpen: false,
       paymentIntent: '',
@@ -68,8 +67,8 @@ export const useCartStore = create<CartState>()(
             return { cart: filteredCart };
           }
         }),
-        setPaymentIntent: (val) => set((state) => ({paymentIntent: val})),
-        setCheckout: (val) => set((state) => ({onCheckout: val}))
+      setPaymentIntent: val => set(state => ({ paymentIntent: val })),
+      setCheckout: val => set(state => ({ onCheckout: val }))
     }),
     { name: 'cart-store' }
   )
