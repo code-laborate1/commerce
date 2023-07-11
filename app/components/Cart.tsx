@@ -12,7 +12,7 @@ export default function Cart() {
 
   //total price
   const totalPrice = cartStore.cart.reduce((acc, item) => {
-    return acc + item.unit_amount * item.quantity
+    return acc + item.unit_amount! * item.quantity!
   }, 0)
 
   return (

@@ -43,8 +43,31 @@ model User {
   accounts      Account[]
   sessions      Session[]
   stripeCustomerId String?
+  orders Order[]
   
 }
+model Order{
+  id String @id @default(cuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  amount Float
+  currency String
+  status String
+  createdAt DateTime @default(now())
+  paymentIntentID String? @unique
+  products Product[]
+}
+model Product{
+  id String @id @default(cuid())
+  name String
+  description String?
+  unit_amount Float
+  image String?
+  quantity Float @default(0)
+  orders Order[]
+}
+// many to many rel - 
+// order have many product, -> product belong to many orders 
 
 model VerificationToken {
   identifier String
