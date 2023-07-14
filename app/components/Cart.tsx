@@ -93,7 +93,7 @@ export default function Cart() {
         {/* Checkout and total */}
           {cartStore.cart.length > 0 && cartStore.onCheckout === 'cart' ? (
            <motion.div layout>
-            <p className='text-success'>Total: {formatPrice(totalPrice)}</p>
+            <p className='text-primary'>Total: {formatPrice(totalPrice)}</p>
             <button onClick={() => cartStore.setCheckout('checkout')}
             className="py-2 mt-4 bg-neutral w-full rounded-md text-white">
               Checkout
