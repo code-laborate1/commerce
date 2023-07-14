@@ -55,6 +55,8 @@ export default async function Dashboard() {
                       alt={product.name}
                       width={40}
                       height={40}
+                      priority={true}
+                      className='w-auto'
                     />
                     <div>
                       <h2 className="text-sm font-semibold text-gray-700 dark:text-white">{product.name}</h2>

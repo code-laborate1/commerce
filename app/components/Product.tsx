@@ -26,6 +26,7 @@ export default function Product({
           width={400}
           height={400}
           className="w-96 h-80 object-cover rounded-lg"
+          priority={true}
         />
         <div className="font-medium py-2">
           <h1>
