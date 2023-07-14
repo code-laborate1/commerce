@@ -14,7 +14,7 @@ export default function Nav({ user }: Session) {
   return (
     <nav className="flex justify-between items-center py-12">
       <Link href={'/'}>
-        <h1>Attire Alchemy</h1>
+        <h1 className="font-lobster text-xl">Attire Alchemy</h1>
       </Link>
       <ul className="flex items-center gap-12">
         {/* toggle the cart */}
@@ -39,7 +39,7 @@ export default function Nav({ user }: Session) {
         {/* is the user is not signed in */}
         {!user &&
           <li className="bg-neutral text-white py-2 px-4 rounded-md mb-4 my-4">
-            <button onClick={() => signIn()}> Sign In</button>
+            <button onClick={() => signIn()}>Sign In</button>
           </li>}
         {user &&
           <li>
