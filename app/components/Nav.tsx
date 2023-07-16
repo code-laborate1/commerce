@@ -8,7 +8,6 @@ import Cart from './Cart';
 import { useCartStore } from '@/store';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-
 export default function Nav({ user }: Session) {
   const cartStore = useCartStore();
   return (
@@ -17,6 +16,9 @@ export default function Nav({ user }: Session) {
         <h1 className="font-lobster text-xl">Pickle Pantry</h1>
       </Link>
       <ul className="flex items-center gap-12">
+        <li className="text-xl">
+          <Link href="/about">About</Link>
+        </li>
         {/* toggle the cart */}
         <li
           onClick={() => cartStore.toggleCart()}

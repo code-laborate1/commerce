@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import Hydrate from './components/Hydrate';
 import {Roboto, Lobster, Lobster_Two} from 'next/font/google'
+import Footer from './components/Footer';
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -35,6 +36,7 @@ export default async function RootLayout({
           <Nav user={session?.user} expires={session?.expires as string}/>
           {children}
         </Hydrate>
+        <Footer />
       </body>
     </html>
   );
