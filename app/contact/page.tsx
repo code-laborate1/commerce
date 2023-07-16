@@ -46,8 +46,7 @@ const ContactForm = () => {
           Contact Us
         </h1>
         <p className="text-gray-600 text-lg">
-          We'd love to hear from you. Please fill out the form below to reach
-          us.
+          We'd love to hear from you. Please fill out the form to reach us.
         </p>
       </div>
       <form className="md:w-1/2" onSubmit={handleSubmit}>
