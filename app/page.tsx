@@ -1,35 +1,82 @@
-import Stripe from 'stripe';
-import Product from './components/Product';
-const getProducts = async () => {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: '2022-11-15'
-  });
+'use client';
 
-  const products = await stripe.products.list();
-  const productsWithPrices = await Promise.all(
-    products.data.map(async product => {
-      const prices = await stripe.prices.list({
-        product: product.id
-      });
-      const features = product.metadata.features || ''
-      return {
-        id: product.id,
-        name: product.name,
-        unit_amount: prices.data[0].unit_amount,
-        image: product.images[0],
-        currency: prices.data[0].currency,
-        description: product.description,
-        metadata: { features },
-      };
-    })
-  );
-  return productsWithPrices;
-};
-export default async function Home() {
-  const products = await getProducts();
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import lemon from '../public/lemon.jpeg';
+import pickle from '../public/Dill-Pickles.jpeg';
+const HomePage = () => {
+  const fadeUpVariant = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+  };
+
+  const fadeDownVariant = {
+    hidden: { opacity: 0, y: -100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+  };
+
   return (
-    <main className="grid grid-cols-fluid gap-12">
-      {products.map(product => <Product {...product} key={product.id} />)}
-    </main>
+    <div className="flex flex-col justify-center items-center space-y-20">
+      <div className="flex flex-wrap justify-around items-center w-full md:flex-row-reverse">
+        <motion.div
+          className="w-full md:w-1/2 flex justify-center"
+          variants={fadeUpVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <Image
+            src={pickle}
+            width={500}
+            height={500}
+            objectFit="contain"
+            alt="Image 1"
+          />
+        </motion.div>
+        <motion.div
+          className="w-full md:w-1/2 text-center md:text-left px-8 py-4"
+          variants={fadeDownVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <h2 className="text-4xl font-bold mb-4">About Pickle Pantry</h2>
+          <p className="text-xl">
+            At Pickle Pantry, we are deeply committed to providing our customers
+            with the finest pickles made with love and traditional recipes.
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="flex flex-wrap justify-around items-center w-full">
+        <motion.div
+          className="w-full md:w-1/2 flex justify-center"
+          variants={fadeUpVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <Image
+            src={lemon}
+            width={500}
+            height={500}
+            objectFit="contain"
+            alt="Image 2"
+          />
+        </motion.div>
+        <motion.div
+          className="w-full md:w-1/2 text-center md:text-left px-8 py-4"
+          variants={fadeDownVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <h2 className="text-4xl font-bold mb-4">Our Philosophy</h2>
+          <p className="text-xl">
+            Each jar we sell represents our commitment to quality and taste. Our
+            pickles are made using only the finest ingredients and family
+            recipes handed down through generations.
+          </p>
+        </motion.div>
+      </div>
+    </div>
   );
-}
+};
+
+export default HomePage;
