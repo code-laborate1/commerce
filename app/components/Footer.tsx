@@ -17,17 +17,12 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="mt-4 text-gray-400 space-y-2">
               <li>
-                <a href="/" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
+                <a href="/products" className="hover:underline">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   About
                 </a>
               </li>
