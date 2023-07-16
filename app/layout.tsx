@@ -17,7 +17,7 @@ const lobster = Lobster_Two({
   });
 
 export const metadata = {
-  title: 'Attire Alchemy',
+  title: 'PicklePantry',
   description: 'Discover a world of endless possibilities at our online store'
 };
 

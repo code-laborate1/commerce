@@ -15,7 +15,7 @@ export default async function Product({ searchParams }: SearchParamTypes) {
         priority={true}
       />
       <div className="font-medium">
-        <h1 className="tecxt-2x1 font-medium py-2">
+        <h1 className="text-2xl font-bold text-primary">
           {searchParams.name}
         </h1>
         <p className="py-2">
