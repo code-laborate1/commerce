@@ -19,6 +19,9 @@ export default function Nav({ user }: Session) {
         <li className="text-xl">
           <Link href="/products">Shop</Link>
         </li>
+        <li className="text-xl">
+          <Link href="/contact">Contact</Link>
+        </li>
         {/* toggle the cart */}
         <li
           onClick={() => cartStore.toggleCart()}

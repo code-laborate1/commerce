@@ -35,8 +35,8 @@ export default async function RootLayout({
         <Hydrate>
           <Nav user={session?.user} expires={session?.expires as string}/>
           {children}
-        </Hydrate>
         <Footer />
+        </Hydrate>
       </body>
     </html>
   );
